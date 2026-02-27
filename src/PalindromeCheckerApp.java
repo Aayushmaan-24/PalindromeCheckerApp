@@ -1,23 +1,36 @@
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
-        String input = "noon";
+        String input = "civic";
+        // Create Queue (FIFO)
+        Queue<Character> queue = new LinkedList<>();
 
+        // Create Stack (LIFO)
         Stack<Character> stack = new Stack<>();
 
-        for(char c : input.toCharArray())
-            stack.push(c);
-
-        boolean isPalin = true;
+        // Insert characters into both structures
         for (char c : input.toCharArray()) {
-            if (c != stack.pop()) {
-                isPalin = false;
+            queue.add(c);     // FIFO
+            stack.push(c);    // LIFO
+        }
+
+        // Flag to track palindrome status
+        boolean isPalindrome = true;
+
+        // Compare until queue becomes empty
+        while (!queue.isEmpty()) {
+            char fromQueue = queue.remove();   // front
+            char fromStack = stack.pop();      // top
+
+            if (fromQueue != fromStack) {
+                isPalindrome = false;
                 break;
             }
         }
-
         System.out.println("Input : " + input);
-        System.out.println("Is Palindrome? : " + isPalin);
+        System.out.println("Is Palindrome? : " + isPalindrome);
     }
 }
