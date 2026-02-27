@@ -8,11 +8,7 @@ public class PalindromeCheckerApp {
                 break;
             }
         }
-        if (flag){
-            System.out.println("Palindrome");
-        }
-        else {
-            System.out.println("Not a palindrome");
-        }
+        System.out.println("Input Text: "+input);
+        System.out.println("Is it a palindrome? : "+flag);
     }
 }
