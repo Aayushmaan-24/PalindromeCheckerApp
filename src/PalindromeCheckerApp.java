@@ -7,13 +7,13 @@ class PalindromeChecker {
         Stack<Character> stack = new Stack<>();
 
         // Push characters into stack
-        for (char c : input.toCharArray()) {
-            stack.push(c);
+        for (char ch : input.toCharArray()) {
+            stack.push(ch);
         }
 
         // Compare characters
-        for (char c : input.toCharArray()) {
-            if (c != stack.pop()) {
+        for (char ch : input.toCharArray()) {
+            if (ch != stack.pop()) {
                 return false;
             }
         }
