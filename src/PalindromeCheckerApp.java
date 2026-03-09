@@ -34,29 +34,30 @@ class DequeStrategy implements PalindromeStrategy {
 
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
-        String input = "level";  // You can test with longer strings for better performance comparison
+        String input = "level";
 
-        // List of strategies to compare
-        Map<String, PalindromeStrategy> strategies = new LinkedHashMap<>();
-        strategies.put("Stack Strategy", new StackStrategy());
-        strategies.put("Deque Strategy", new DequeStrategy());
+        System.out.println("=====Time comparisons=====\n");
 
-        // Run each strategy, capture execution time, and display results
-        System.out.println("=== Palindrome Performance Comparison ===");
-        for (Map.Entry<String, PalindromeStrategy> entry : strategies.entrySet()) {
-            String name = entry.getKey();
-            PalindromeStrategy strategy = entry.getValue();
+        // Stack strategy
+        System.out.println("Stack Strategy: ");
+        PalindromeStrategy stackStrategy = new StackStrategy();
+        long startTime = System.nanoTime();
+        boolean stackResult = stackStrategy.checkPalindrome(input);
+        long endTime = System.nanoTime();
+        System.out.println("Input : " + input);
+        System.out.println("Is Palindrome : " + stackResult);
+        System.out.println("Time taken: "+(endTime-startTime));
 
-            long startTime = System.nanoTime();
-            boolean result = strategy.checkPalindrome(input);
-            long endTime = System.nanoTime();
-            long duration = endTime - startTime;
+        // Deque strategy
+        System.out.println("Stack Strategy: ");
+        PalindromeStrategy dequeStrategy = new DequeStrategy();
+        startTime = System.nanoTime();
+        boolean dequeResult = dequeStrategy.checkPalindrome(input);
+        endTime = System.nanoTime();
+        System.out.println("Input : " + input);
+        System.out.println("Is Palindrome : " + dequeResult);
+        System.out.println("Time taken: "+(endTime-startTime));
 
-            System.out.println(name + ":");
-            System.out.println("Input: " + input);
-            System.out.println("Is Palindrome: " + result);
-            System.out.println("Execution Time (ns): " + duration);
-            System.out.println("-------------------------------------");
-        }
+
     }
 }
