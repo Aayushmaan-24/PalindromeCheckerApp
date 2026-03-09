@@ -7,15 +7,15 @@ public class PalindromeCheckerApp {
         String input = "a man a plan a canal Panama";
 
         // Normalize string
-        String normalized = input.replaceAll("\\s+", "").toLowerCase();
+        String cleaned = input.replaceAll("\\s+", "").toLowerCase();
 
         int start = 0;
-        int end = normalized.length() - 1;
+        int end = cleaned.length() - 1;
 
         boolean isPalindrome = true;
 
         while (start <= end) {
-            if (normalized.charAt(start) != normalized.charAt(end)) {
+            if (cleaned.charAt(start) != cleaned.charAt(end)) {
                 isPalindrome = false;
                 break;
             }
