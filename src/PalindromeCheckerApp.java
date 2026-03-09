@@ -1,17 +1,27 @@
+import java.util.*;
+
 public class PalindromeCheckerApp {
     /**
      * Application entry point that checks whether the hard-coded string "madam" is a palindrome and prints the input and the palindrome result.
      */
     public static void main(String[] args) {
-        String input = "madam";
-        boolean flag = true;
-        for (int i = 0; i<input.length()/2; i++) {
-            if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
-                flag = false;
+        String input = "level";
+        LinkedList<Character> list = new LinkedList<>();
+
+        for (char c : input.toCharArray()){
+            list.add(c);   // add characters to linked list
+        }
+
+        boolean isPalindrome = true;
+
+        while (list.size() > 1) {
+            if (!list.removeFirst().equals(list.removeLast())) {
+                isPalindrome = false;
                 break;
             }
         }
-        System.out.println("Input Text: "+input);
-        System.out.println("Is it a palindrome? : "+flag);
+
+        System.out.println("Input: " + input);
+        System.out.println("Is Palindrome: " + isPalindrome);
     }
 }
