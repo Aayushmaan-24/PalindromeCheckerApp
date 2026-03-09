@@ -41,15 +41,20 @@ public class PalindromeCheckerApp {
     public static void main(String[] args) {
         String input = "level";
 
+        System.out.println("Results comparison: \n");
+
+
         // Stack strategy
-        System.out.println("Stack Strategy: ");
+        System.out.println("Stack Strategy: \n");
         PalindromeStrategy stackStrategy = new StackStrategy();
         boolean stackResult = stackStrategy.checkPalindrome(input);
         System.out.println("Input : " + input);
         System.out.println("Is Palindrome : " + stackResult);
 
+        System.out.println("---------------------------------------------------------");
+
         // Deque strategy
-        System.out.println("Deque Strategy: ");
+        System.out.println("Deque Strategy: \n");
         PalindromeStrategy dequeStrategy = new DequeStrategy();
         boolean dequeResult = dequeStrategy.checkPalindrome(input);
         System.out.println("Input : " + input);
